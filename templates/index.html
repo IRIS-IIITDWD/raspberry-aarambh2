@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>GPIO Control Web App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="styleSheet" type="text/css" href="/static/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <img
+      src="/static/irislogo.png"
+      alt="Because You Normie"
+      class="responsive"
+      style="margin-top: 50px"
+    />
+
+    <h1>Press the switches to control the lights</h1>
+
+    <div class="container">
+      <div class="switch">
+        {% if ledRed==1 %}
+        <input id="ledRed" type="checkbox" name="toggle" checked="true" />
+        {% else %}
+        <input id="ledRed" type="checkbox" name="toggle" />
+        {% endif %}
+
+        <label for="toggle">
+          <i class="bulb">
+            <span class="bulb-center"></span>
+            <span class="filament-1"></span>
+            <span class="filament-2"></span>
+            <span class="reflections">
+              <span></span>
+            </span>
+            <span class="sparks">
+              <i class="spark1"></i>
+              <i class="spark2"></i>
+              <i class="spark3"></i>
+              <i class="spark4"></i>
+            </span>
+          </i>
+        </label>
+      </div>
+
+      <div class="switch">
+        {% if ledYellow==1 %}
+        <input id="ledYellow" type="checkbox" name="toggle" checked="true" />
+        {% else %}
+        <input id="ledYellow" type="checkbox" name="toggle" />
+        {% endif %}
+        <label for="toggle">
+          <i class="bulb">
+            <span class="bulb-center"></span>
+            <span class="filament-1"></span>
+            <span class="filament-2"></span>
+            <span class="reflections">
+              <span></span>
+            </span>
+            <span class="sparks">
+              <i class="spark1"></i>
+              <i class="spark2"></i>
+              <i class="spark3"></i>
+              <i class="spark4"></i>
+            </span>
+          </i>
+        </label>
+      </div>
+
+      <div class="switch">
+        {% if ledGreen==1 %}
+        <input id="ledGreen" type="checkbox" name="toggle" checked="true" />
+        {% else %}
+        <input id="ledGreen" type="checkbox" name="toggle" />
+        {% endif %}
+        <label for="toggle">
+          <i class="bulb">
+            <span class="bulb-center"></span>
+            <span class="filament-1"></span>
+            <span class="filament-2"></span>
+            <span class="reflections">
+              <span></span>
+            </span>
+            <span class="sparks">
+              <i class="spark1"></i>
+              <i class="spark2"></i>
+              <i class="spark3"></i>
+              <i class="spark4"></i>
+            </span>
+          </i>
+        </label>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    $("#ledRed").change(function () {
+      if ($(this).is(":checked")) {
+        //Turned On
+        $.get("/ledRed/on", function (data) {});
+      } else {
+        //Turned Off
+        $.get("/ledRed/off", function (data) {});
+      }
+    });
+
+    $("#ledYellow").change(function () {
+      if ($(this).is(":checked")) {
+        //Turned On
+        $.get("/ledYellow/on", function (data) {});
+      } else {
+        //Turned Off
+        $.get("/ledYellow/off", function (data) {});
+      }
+    });
+
+    $("#ledGreen").change(function () {
+      if ($(this).is(":checked")) {
+        //Turned On
+        $.get("/ledGreen/on", function (data) {});
+      } else {
+        //Turned Off
+        $.get("/ledGreen/off", function (data) {});
+      }
+    });
+
+    setTimeout(function(){
+      window.location.reload(1);
+    }, 2500);
+  </script>
+</html>
