@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+    <!-- Responsive Layout Header -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>GPIO Control Web App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="styleSheet" type="text/css" href="/static/style.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 
+    <!-- Files and External Urls -->
+    <link rel="styleSheet" type="text/css" href="/static/style.css" />
+
+    <!-- CDN -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
   </head>
+
   <body>
     <img
       src="/static/irislogo.png"
-      alt="Because You Normie"
+      alt="IRIS Logo"
       class="responsive"
       style="margin-top: 50px"
     />
@@ -97,6 +104,9 @@
   </body>
 
   <script>
+
+    //Listens if there is any change in switch. (User changes the switch)
+
     $("#ledRed").change(function () {
       if ($(this).is(":checked")) {
         //Turned On
@@ -127,6 +137,8 @@
       }
     });
 
+
+    //Reloading the page in every 2.5s.
     setTimeout(function(){
       window.location.reload(1);
     }, 2500);
