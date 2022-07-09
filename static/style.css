@@ -3,7 +3,7 @@ body {
     display: block;
     align-items: center;
     justify-content: center;
-    background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(/static/wallpaper.png) no-repeat center center fixed; 
+    background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(https://firebasestorage.googleapis.com/v0/b/wave-b537f.appspot.com/o/wallpaper2.png?alt=media) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
